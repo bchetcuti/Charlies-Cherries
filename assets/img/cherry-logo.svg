@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Charlies Cherries logo</title>
+  <desc id="desc">Two cherries with a chef hat.</desc>
+  <rect width="160" height="160" rx="42" fill="#fff8ec"/>
+  <path d="M78 75c2-28 14-43 37-50" fill="none" stroke="#3c7a3f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M83 76c-7-26-2-45 17-59" fill="none" stroke="#3c7a3f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M87 24c9-15 31-16 41-4 12-2 24 6 25 19 1 16-11 26-28 24H82c-18 1-30-8-30-23 0-14 13-24 27-20 2 1 5 2 8 4Z" fill="#ffffff" stroke="#7b1530" stroke-width="5"/>
+  <circle cx="61" cy="100" r="34" fill="#b4234a"/>
+  <circle cx="103" cy="103" r="34" fill="#d72e59"/>
+  <circle cx="50" cy="88" r="8" fill="#ff9bb6" opacity=".9"/>
+  <circle cx="93" cy="91" r="8" fill="#ffadc4" opacity=".9"/>
+  <path d="M34 129c25 11 67 11 92-1" fill="none" stroke="#7b1530" stroke-width="6" stroke-linecap="round" opacity=".2"/>
+</svg>
