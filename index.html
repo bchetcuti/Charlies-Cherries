@@ -12,7 +12,7 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" aria-label="Charlies Cherries header">
@@ -27,8 +27,8 @@
       <a href="#menu">Menu</a>
       <a href="#dining-room">Dining room</a>
       <a href="#bookings">Book</a>
-      <a href="#chef">Chef</a>
-      <a href="/boss-mode.html">Boss Mode</a>
+      <a href="/chef-desk.html">Chef Desk</a>
+      <a href="/opening-day.html">Opening Day</a>
     </nav>
   </header>
 
@@ -41,11 +41,11 @@
         <div class="hero-actions" aria-label="Page actions">
           <a class="button button-primary" href="#menu">See the menu</a>
           <a class="button button-secondary" href="#bookings">Book a pretend table</a>
-          <a class="button button-secondary" href="/launch-card.html">Open launch card</a>
+          <a class="button button-secondary" href="/chef-desk.html">Open Chef Desk</a>
         </div>
         <ul class="hero-badges" aria-label="Restaurant highlights">
           <li>★★★★★ 5 cherries</li>
-          <li>Chef approved</li>
+          <li data-live-mood>Chef approved</li>
           <li>Family launch edition</li>
         </ul>
       </div>
@@ -58,6 +58,31 @@
           <button class="button button-small" type="button" data-chef-note>Ask the chef</button>
           <p class="chef-note" aria-live="polite">Chef note: “Ribs must be delicious and a little bit messy.”</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section-shell hq-pack" aria-labelledby="hq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Restaurant HQ</p>
+        <h2 id="hq-title">Things Chef Charlie can explore</h2>
+        <p>Change the board, invent a menu item, get ready for opening day and collect pretend restaurant stickers.</p>
+      </div>
+      <div class="hq-grid">
+        <a class="hq-card" href="/chef-desk.html">
+          <span aria-hidden="true">👩‍🍳</span>
+          <h3>Chef Desk</h3>
+          <p>Change the special, rename the best table and invent a new dish.</p>
+        </a>
+        <a class="hq-card" href="/opening-day.html">
+          <span aria-hidden="true">✅</span>
+          <h3>Opening Day</h3>
+          <p>Tick off the launch checklist and get the restaurant ready.</p>
+        </a>
+        <a class="hq-card" href="/launch-card.html">
+          <span aria-hidden="true">📱</span>
+          <h3>Launch Card</h3>
+          <p>Print the invitation with the QR code for the big reveal.</p>
+        </a>
       </div>
     </section>
 
@@ -122,6 +147,18 @@
         </article>
       </div>
 
+      <article class="invention-card" data-invention-home hidden>
+        <p class="eyebrow">Chef Charlie’s newest invention</p>
+        <div class="invention-card__body">
+          <span class="invention-card__emoji" data-invention-emoji aria-hidden="true">🍒</span>
+          <div>
+            <h3 data-invention-name>Secret menu item</h3>
+            <p data-invention-note>Made by Chef Charlie at the Chef Desk.</p>
+            <p class="menu-stamp"><span data-invention-price>5 cherries</span> · <span data-invention-stamp>Chef approved</span></p>
+          </div>
+        </div>
+      </article>
+
       <div class="print-card">
         <div>
           <h3>Printable restaurant menu</h3>
@@ -167,7 +204,7 @@
       <div class="section-heading">
         <p class="eyebrow">Pretend bookings</p>
         <h2 id="booking-title">Book a table</h2>
-        <p>This form does not send or save anything. It only creates a pretend booking confirmation on this screen.</p>
+        <p>This form does not send or save anything. It only creates a pretend booking and kitchen ticket on this screen.</p>
       </div>
 
       <form class="booking-form" data-booking-form>
@@ -187,7 +224,7 @@
         </label>
         <label>
           Favourite menu item
-          <select name="meal" required>
+          <select name="meal" required data-meal-select>
             <option>BBQ pork ribs</option>
             <option>Chicken wings</option>
             <option>Lasagne</option>
@@ -202,6 +239,7 @@
       </form>
 
       <div class="confirmation" data-confirmation hidden aria-live="polite"></div>
+      <article class="order-ticket" data-order-ticket hidden aria-label="Printable kitchen order ticket"></article>
     </section>
 
     <section class="section-shell reviews" aria-labelledby="reviews-title">
@@ -254,7 +292,7 @@
 
   <footer class="site-footer">
     <p>Charlies Cherries is a pretend family restaurant made for play, imagination and very serious ribs.</p>
-    <p><a href="/menu.html">Printable menu</a> · <a href="/certificate.html">Chef certificate</a> · <a href="/launch-card.html">Launch card</a> · <a href="/boss-mode.html">Boss Mode</a></p>
+    <p><a href="/menu.html">Printable menu</a> · <a href="/certificate.html">Chef certificate</a> · <a href="/launch-card.html">Launch card</a> · <a href="/chef-desk.html">Chef Desk</a> · <a href="/opening-day.html">Opening Day</a></p>
   </footer>
 
   <script src="/assets/js/app.js" defer></script>

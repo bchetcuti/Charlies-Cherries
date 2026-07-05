@@ -975,3 +975,348 @@ h3 {
   color: var(--muted);
   font-weight: 900;
 }
+
+/* v1.2: Chef Charlie's Restaurant HQ */
+.hq-pack {
+  padding-top: 1rem;
+}
+
+.hq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hq-card {
+  display: block;
+  min-height: 100%;
+  padding: clamp(1.2rem, 3vw, 1.7rem);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.82);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 16px 32px rgba(123, 21, 48, 0.08);
+}
+
+.hq-card:hover,
+.hq-card:focus-visible {
+  transform: translateY(-3px) rotate(-0.6deg);
+  box-shadow: var(--shadow);
+}
+
+.hq-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.9rem;
+  border-radius: 999px;
+  background: var(--cherry-soft);
+  font-size: 1.7rem;
+}
+
+.chef-desk,
+.opening-day {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.desk-hero {
+  padding: clamp(2rem, 5vw, 3rem);
+  border: 3px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 229, 163, 0.5)),
+    #fff;
+  box-shadow: var(--shadow);
+}
+
+.desk-hero h1 {
+  max-width: 9ch;
+  margin-bottom: 0.6rem;
+}
+
+.boss-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.86);
+  box-shadow: 0 18px 40px rgba(123, 21, 48, 0.08);
+}
+
+.boss-panel > .sticker-book,
+.boss-panel > .hq-grid,
+.boss-panel > .opening-checklist,
+.boss-panel > .boss-preview,
+.boss-panel > .invention-card,
+.boss-panel > .opening-progress,
+.boss-panel > .boss-actions {
+  grid-column: 2;
+}
+
+.boss-form,
+.opening-checklist {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.boss-form label,
+.opening-checklist label {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 248, 236, 0.8);
+  color: var(--cherry-dark);
+  font-weight: 900;
+}
+
+.boss-form input,
+.boss-form select,
+.boss-form textarea,
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  border: 2px solid rgba(123, 21, 48, 0.18);
+  border-radius: 14px;
+  padding: 0.78rem 0.85rem;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.boss-form input:focus,
+.boss-form select:focus,
+.boss-form textarea:focus,
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: 3px solid rgba(255, 229, 163, 0.9);
+  border-color: var(--cherry);
+}
+
+.boss-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.boss-preview,
+.opening-progress,
+.invention-card,
+.order-ticket {
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 2px dashed rgba(180, 35, 74, 0.34);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.94), rgba(255,228,236,0.7)),
+    #fff;
+}
+
+.boss-preview h3,
+.invention-card h3,
+.order-ticket h3 {
+  color: var(--cherry-dark);
+}
+
+.invention-card {
+  margin-top: 1.4rem;
+}
+
+.invention-card--desk {
+  margin-top: 0;
+}
+
+.invention-card__body {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.invention-card__emoji {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(4rem, 12vw, 5.5rem);
+  height: clamp(4rem, 12vw, 5.5rem);
+  border-radius: 999px;
+  background: var(--butter);
+  font-size: clamp(2rem, 7vw, 3rem);
+  box-shadow: inset 0 0 0 4px rgba(255,255,255,0.7);
+}
+
+.order-ticket {
+  margin-top: 1rem;
+  max-width: 36rem;
+  background: #fff;
+}
+
+.order-ticket dl,
+.chef-facts {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.order-ticket dl div,
+.chef-facts div {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.45fr) minmax(0, 1fr);
+  gap: 0.7rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.order-ticket dt,
+.chef-facts dt {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.order-ticket dd,
+.chef-facts dd {
+  margin: 0;
+  font-weight: 900;
+}
+
+.ticket-approved {
+  margin: 1rem 0;
+  color: var(--cherry-dark);
+  font-weight: 1000;
+}
+
+.sticker-book {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.sticker {
+  display: grid;
+  gap: 0.25rem;
+  min-height: 9rem;
+  place-items: center;
+  padding: 1rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background: rgba(255,255,255,0.88);
+}
+
+.sticker span {
+  display: inline-grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  background: var(--cherry-soft);
+  font-size: 1.7rem;
+}
+
+.sticker strong {
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.sticker small {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.sticker.is-locked {
+  opacity: 0.58;
+}
+
+.sticker.is-unlocked {
+  border-color: rgba(180, 35, 74, 0.34);
+  background: linear-gradient(145deg, #fff, rgba(255, 229, 163, 0.5));
+}
+
+.opening-checklist label {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.05rem;
+}
+
+.opening-checklist input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: var(--cherry);
+}
+
+.opening-progress {
+  color: var(--cherry-dark);
+  font-size: 1.2rem;
+  font-weight: 1000;
+}
+
+.ticket-printing .site-header,
+.ticket-printing .section-heading,
+.ticket-printing .booking-form,
+.ticket-printing .confirmation,
+.ticket-printing .site-footer,
+.ticket-printing .hero,
+.ticket-printing .hq-pack,
+.ticket-printing .launch-pack,
+.ticket-printing .rules,
+.ticket-printing .reviews,
+.ticket-printing .chef,
+.ticket-printing .dining-room,
+.ticket-printing .print-card,
+.ticket-printing .menu-grid,
+.ticket-printing .invention-card:not(.order-ticket) {
+  display: none !important;
+}
+
+.ticket-printing .order-ticket {
+  display: block !important;
+  margin: 2rem auto;
+}
+
+@media (max-width: 860px) {
+  .hq-grid,
+  .boss-panel,
+  .sticker-book {
+    grid-template-columns: 1fr;
+  }
+
+  .boss-panel > .sticker-book,
+  .boss-panel > .hq-grid,
+  .boss-panel > .opening-checklist,
+  .boss-panel > .boss-preview,
+  .boss-panel > .invention-card,
+  .boss-panel > .opening-progress,
+  .boss-panel > .boss-actions {
+    grid-column: auto;
+  }
+}
+
+@media print {
+  .ticket-printing body,
+  body.ticket-printing {
+    background: #fff !important;
+  }
+
+  body.ticket-printing::before {
+    display: none;
+  }
+
+  body.ticket-printing .order-ticket {
+    max-width: none;
+    border: 2px solid #000;
+    color: #000;
+    box-shadow: none;
+  }
+
+  body.ticket-printing .order-ticket .button {
+    display: none;
+  }
+}
