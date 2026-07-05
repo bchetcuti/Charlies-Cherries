@@ -15,9 +15,13 @@
       <h1 id="launch-title">Charlies Cherries</h1>
       <p class="print-subtitle">Tiny boss. Big flavour.</p>
       <p class="certificate-copy">You are officially invited to visit Chef Charlie’s world-famous carpark restaurant.</p>
-      <div class="qr-placeholder" aria-label="QR code placeholder">
-        <span>Place QR code here</span>
-      </div>
+      <figure class="qr-frame">
+        <img class="qr-code" src="/assets/img/qr.png" alt="QR code to visit Charlies Cherries" width="280" height="280" data-qr-image>
+        <figcaption>Scan to visit the restaurant website</figcaption>
+        <div class="qr-placeholder" data-qr-fallback hidden>
+          <span>Add <code>/assets/img/qr.png</code> to show the QR code here</span>
+        </div>
+      </figure>
       <p class="print-note"><strong>Opening special:</strong> BBQ pork ribs, chicken wings, lasagne and very important dessert decisions.</p>
     </div>
     <div class="screen-actions">

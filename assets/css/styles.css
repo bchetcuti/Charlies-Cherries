@@ -18,6 +18,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html {
   scroll-behavior: smooth;
 }
@@ -303,6 +305,10 @@ h3 {
 .menu-card,
 .print-card,
 .map-card,
+.launch-pack-card,
+.rules-list li,
+.boss-panel,
+.boss-preview,
 .booking-form,
 .confirmation,
 .review-grid blockquote,
@@ -405,6 +411,150 @@ h3 {
 .map-zone.kitchen { grid-column: span 2; background: var(--mint); }
 .map-zone.dessert { background: #f0e9ff; }
 .map-zone.manager { background: #fff1c9; }
+
+
+.launch-pack {
+  padding-top: 0;
+}
+
+.launch-pack-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.2rem, 4vw, 1.8rem);
+  background: linear-gradient(120deg, rgba(255, 229, 163, 0.72), rgba(255,255,255,0.9));
+}
+
+.launch-pack-card p:not(.eyebrow) {
+  max-width: 46rem;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.launch-pack-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.rules-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: rules;
+}
+
+.rules-list li {
+  position: relative;
+  min-height: 150px;
+  padding: 3.2rem 1rem 1rem;
+  color: var(--cherry-dark);
+  font-size: 1.1rem;
+  font-weight: 900;
+  overflow: hidden;
+}
+
+.rules-list li::before {
+  counter-increment: rules;
+  content: counter(rules);
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--cherry);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.menu-card[tabindex] {
+  cursor: pointer;
+}
+
+.menu-card:focus-visible {
+  outline: 4px solid rgba(180, 35, 74, 0.24);
+  outline-offset: 4px;
+}
+
+.boss-mode {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.boss-hero h1 {
+  max-width: none;
+}
+
+.boss-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.76fr) minmax(320px, 1fr) minmax(260px, 0.7fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding: clamp(1.2rem, 4vw, 1.8rem);
+  background: rgba(255,255,255,0.88);
+}
+
+.boss-panel h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.boss-panel p {
+  color: var(--muted);
+}
+
+.boss-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.boss-form label {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--cherry-dark);
+  font-weight: 900;
+}
+
+.boss-form input {
+  width: 100%;
+  border: 2px solid rgba(123, 21, 48, 0.16);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+.boss-form input:focus {
+  outline: 3px solid rgba(180, 35, 74, 0.18);
+  border-color: var(--cherry);
+}
+
+.boss-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.boss-preview {
+  padding: 1.15rem;
+  background: var(--cherry-soft);
+}
+
+.boss-preview h3 {
+  color: var(--cherry-dark);
+  font-size: 1.8rem;
+}
+
+.boss-preview p:last-child {
+  margin-bottom: 0;
+}
 
 .bookings {
   display: grid;
@@ -702,14 +852,19 @@ h3 {
 
   .hero,
   .bookings,
-  .chef-card {
+  .chef-card,
+  .launch-pack-card,
+  .boss-panel {
     grid-template-columns: 1fr;
   }
+
+  .launch-pack-actions { justify-content: flex-start; }
 
   .confirmation { grid-column: auto; }
 
   .menu-grid,
-  .review-grid {
+  .review-grid,
+  .rules-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -728,6 +883,7 @@ h3 {
   .site-header nav a { font-size: 0.82rem; }
   .menu-grid,
   .review-grid,
+  .rules-list,
   .chef-facts,
   .certificate-signatures {
     grid-template-columns: 1fr;
@@ -785,15 +941,37 @@ h3 {
   font-size: clamp(2.8rem, 9vw, 5.4rem);
 }
 
+.qr-frame {
+  margin: 1.6rem auto;
+  text-align: center;
+}
+
+.qr-code,
 .qr-placeholder {
   display: grid;
   place-items: center;
   width: min(72vw, 280px);
   aspect-ratio: 1;
-  margin: 1.6rem auto;
-  border: 4px dashed rgba(123, 21, 48, 0.35);
+  margin: 0 auto;
+  border: 10px solid #fff;
   border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(123, 21, 48, 0.16);
+}
+
+.qr-code {
+  height: auto;
+}
+
+.qr-placeholder {
+  border: 4px dashed rgba(123, 21, 48, 0.35);
   background: repeating-linear-gradient(45deg, rgba(180,35,74,0.08), rgba(180,35,74,0.08) 10px, rgba(255,255,255,0.7) 10px, rgba(255,255,255,0.7) 20px);
   color: var(--cherry-dark);
+  font-weight: 900;
+}
+
+.qr-frame figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
   font-weight: 900;
 }
