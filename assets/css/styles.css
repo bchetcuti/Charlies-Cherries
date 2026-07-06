@@ -1448,3 +1448,527 @@ h3 {
     box-shadow: none !important;
   }
 }
+
+/* v1.3.1 iPad-first guided UX polish
+   Goal: bigger touch targets, clearer pathing, stronger reading rhythm,
+   and more obvious interactive areas for an 8-year-old using an iPad. */
+@media screen {
+  :root {
+    --touch-target: 58px;
+    --reading-width: 44rem;
+    --guide-ring: 0 0 0 5px rgba(255, 229, 163, 0.85);
+    --soft-card-shadow: 0 14px 30px rgba(123, 21, 48, 0.10);
+  }
+
+  html {
+    font-size: clamp(17px, 1.55vw, 19px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: ui-rounded, "SF Pro Rounded", "Avenir Next Rounded", "Avenir Next", "Nunito", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.58;
+  }
+
+  p,
+  li,
+  label,
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  strong,
+  .button,
+  .menu-stamp,
+  .hero-badges li,
+  .site-header nav a {
+    letter-spacing: -0.01em;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  .menu-card:focus-visible,
+  .hq-card:focus-visible {
+    outline: 4px solid rgba(180, 35, 74, 0.34);
+    outline-offset: 5px;
+    box-shadow: var(--guide-ring), var(--soft-card-shadow);
+  }
+
+  .site-header {
+    max-width: min(calc(var(--max) + 2rem), calc(100% - 1.25rem));
+    margin-top: 0.6rem;
+    border: 1px solid rgba(123, 21, 48, 0.14);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 12px 28px rgba(123, 21, 48, 0.08);
+  }
+
+  .brand {
+    min-height: var(--touch-target);
+  }
+
+  .brand img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .brand strong {
+    font-size: clamp(1.18rem, 2vw, 1.45rem);
+  }
+
+  .brand small {
+    font-size: 0.92rem;
+    font-weight: 800;
+  }
+
+  .site-header nav {
+    gap: 0.65rem;
+  }
+
+  .site-header nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    min-height: var(--touch-target);
+    padding: 0.78rem 1rem;
+    border-width: 2px;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    box-shadow: 0 8px 18px rgba(123, 21, 48, 0.06);
+  }
+
+  .site-header nav a[href="#menu"]::before,
+  .site-header nav a[href="/menu.html"]::before { content: "🍽️"; }
+
+  .site-header nav a[href="#dining-room"]::before { content: "🗺️"; }
+
+  .site-header nav a[href="#bookings"]::before { content: "🧾"; }
+
+  .site-header nav a[href="/chef-desk.html"]::before { content: "👩‍🍳"; }
+
+  .site-header nav a[href="/opening-day.html"]::before { content: "✅"; }
+
+  .site-header nav a[href="/staff-badges.html"]::before { content: "🏷️"; }
+
+  .section-shell {
+    padding-block: clamp(2rem, 4vw, 3.8rem);
+  }
+
+  .section-heading {
+    max-width: var(--reading-width);
+    margin-bottom: 1.35rem;
+  }
+
+  .section-heading p:not(.eyebrow),
+  .hero-subtitle,
+  .chef-card p,
+  .launch-pack-card p:not(.eyebrow) {
+    font-size: clamp(1.08rem, 2vw, 1.28rem);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.1rem;
+    margin-bottom: 0.7rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 228, 236, 0.72);
+    letter-spacing: 0.08em;
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: clamp(3.35rem, 8.5vw, 6.75rem);
+  }
+
+  h2 {
+    font-size: clamp(2.15rem, 5.2vw, 4rem);
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .hero-actions,
+  .screen-actions,
+  .launch-pack-actions,
+  .boss-actions,
+  .sticker-actions {
+    gap: 0.9rem;
+  }
+
+  .button {
+    min-height: var(--touch-target);
+    min-width: 8.5rem;
+    padding: 0.95rem 1.25rem;
+    font-size: 1.02rem;
+    box-shadow: 0 8px 18px rgba(123, 21, 48, 0.08);
+  }
+
+  .button-small {
+    min-height: 52px;
+  }
+
+  .hero-badges li,
+  .menu-stamp {
+    min-height: 2.45rem;
+    padding: 0.45rem 0.78rem;
+    font-size: 0.92rem;
+  }
+
+  .special-board,
+  .menu-card,
+  .print-card,
+  .map-card,
+  .launch-pack-card,
+  .rules-list li,
+  .boss-panel,
+  .boss-preview,
+  .booking-form,
+  .confirmation,
+  .review-grid blockquote,
+  .chef-card,
+  .certificate-preview,
+  .hq-card,
+  .sticker,
+  .invention-card,
+  .order-ticket,
+  .opening-progress {
+    border-width: 2px;
+    box-shadow: var(--soft-card-shadow);
+  }
+
+  .special-board {
+    transform: rotate(0.7deg);
+  }
+
+  .special-board h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  .chef-note {
+    font-size: 1.05rem;
+  }
+
+  .hq-pack .section-heading {
+    position: relative;
+  }
+
+  .hq-pack .section-heading::after {
+    content: "Start here, then choose what to do next.";
+    display: inline-flex;
+    margin-top: 0.75rem;
+    padding: 0.55rem 0.8rem;
+    border: 2px dashed rgba(180, 35, 74, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 229, 163, 0.58);
+    color: var(--cherry-dark);
+    font-weight: 1000;
+  }
+
+  .hq-pack .hq-grid {
+    counter-reset: restaurant-step;
+  }
+
+  .hq-pack .hq-card {
+    position: relative;
+    padding-top: 4.3rem;
+  }
+
+  .hq-pack .hq-card::before {
+    counter-increment: restaurant-step;
+    content: "Step " counter(restaurant-step);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-grid;
+    min-width: 4.7rem;
+    min-height: 2.1rem;
+    place-items: center;
+    padding-inline: 0.65rem;
+    border-radius: 999px;
+    background: var(--cherry);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 1000;
+    letter-spacing: 0.02em;
+  }
+
+  .hq-card > span {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+
+  .hq-card h3 {
+    margin-bottom: 0.35rem;
+  }
+
+  .hq-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-weight: 750;
+  }
+
+  .menu-grid {
+    gap: 1.15rem;
+  }
+
+  .menu-card {
+    min-height: 250px;
+    padding: 1.3rem 1.3rem 4.6rem;
+  }
+
+  .menu-card[tabindex]::before {
+    content: "Tap";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 229, 163, 0.82);
+    color: var(--cherry-dark);
+    font-size: 0.8rem;
+    font-weight: 1000;
+  }
+
+  .menu-icon {
+    margin-bottom: 0.8rem;
+    font-size: 3.1rem;
+  }
+
+  .menu-card p {
+    font-size: 1.02rem;
+    font-weight: 650;
+  }
+
+  .menu-stamp {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .map-grid {
+    gap: 0.9rem;
+  }
+
+  .map-zone {
+    min-height: 128px;
+    padding: 1.15rem;
+    border-width: 3px;
+    font-size: 1.08rem;
+  }
+
+  .rules-list li {
+    min-height: 140px;
+    padding: 3.1rem 1.15rem 1.15rem;
+    font-size: 1.15rem;
+  }
+
+  .boss-panel {
+    gap: 1.2rem;
+  }
+
+  .desk-hero {
+    padding: clamp(1.6rem, 4vw, 2.5rem);
+  }
+
+  .boss-form label,
+  .opening-checklist label,
+  .booking-form label {
+    gap: 0.55rem;
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .boss-form input,
+  .boss-form select,
+  .boss-form textarea,
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    min-height: var(--touch-target);
+    padding: 0.95rem 1rem;
+    font-size: 1.05rem;
+  }
+
+  .booking-form textarea,
+  .boss-form textarea {
+    min-height: 7rem;
+  }
+
+  .confirmation,
+  .order-ticket,
+  .boss-preview,
+  .opening-progress,
+  .invention-card {
+    font-size: 1.04rem;
+  }
+
+  .order-ticket dl div,
+  .chef-facts div {
+    grid-template-columns: minmax(7.5rem, 0.4fr) minmax(0, 1fr);
+  }
+
+  .sticker-book {
+    gap: 0.9rem;
+  }
+
+  .sticker {
+    min-height: 10rem;
+    padding: 1.05rem;
+  }
+
+  .sticker span {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 2rem;
+  }
+
+  .sticker strong {
+    font-size: 1.04rem;
+  }
+
+  .review-grid p {
+    font-size: 1.2rem;
+  }
+
+  .badge-grid {
+    gap: 1.15rem;
+  }
+
+  .staff-badge {
+    min-height: 250px;
+  }
+
+  .site-footer {
+    font-size: 0.98rem;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1180px) {
+  :root {
+    --max: 980px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0.5rem;
+  }
+
+  .site-header nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero,
+  .bookings,
+  .chef-card,
+  .launch-pack-card,
+  .boss-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    gap: 1.6rem;
+  }
+
+  .hero-copy {
+    max-width: 48rem;
+  }
+
+  .hero-actions .button {
+    flex: 1 1 15rem;
+  }
+
+  .launch-pack-actions {
+    justify-content: flex-start;
+  }
+
+  .menu-grid,
+  .review-grid,
+  .rules-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .confirmation {
+    grid-column: auto;
+  }
+
+  .boss-panel > .sticker-book,
+  .boss-panel > .hq-grid,
+  .boss-panel > .opening-checklist,
+  .boss-panel > .boss-preview,
+  .boss-panel > .invention-card,
+  .boss-panel > .opening-progress,
+  .boss-panel > .boss-actions {
+    grid-column: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 17px;
+  }
+
+  .site-header {
+    position: relative;
+    border-radius: 22px;
+  }
+
+  .brand img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .site-header nav a {
+    flex: 1 1 calc(50% - 0.65rem);
+    justify-content: center;
+    min-height: 56px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+  }
+
+  .hero-actions .button,
+  .screen-actions .button,
+  .launch-pack-actions .button,
+  .boss-actions .button,
+  .sticker-actions .button {
+    width: 100%;
+  }
+
+  .hq-pack .hq-card {
+    padding-top: 4rem;
+  }
+
+  .menu-card {
+    min-height: 220px;
+  }
+
+  .map-zone {
+    min-height: 108px;
+  }
+
+  .order-ticket dl div,
+  .chef-facts div {
+    grid-template-columns: 1fr;
+  }
+}
+
