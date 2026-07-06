@@ -5,165 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#b4234a">
-  <title>Chef Desk | Charlies Cherries</title>
-  <meta name="description" content="A local-only pretend Chef Desk for Charlie to change the Charlies Cherries specials board, invent menu items and collect stickers.">
+  <title>Boss Mode | Charlies Cherries</title>
+  <meta name="description" content="A local-only pretend Chef Desk for Charlie to change specials, desserts, tables, reviews, opening hours, party packages and stickers.">
   <link rel="icon" href="/assets/img/icon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body data-page="chef-desk">
   <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" aria-label="Charlies Cherries header"><a class="brand" href="/" aria-label="Charlies Cherries home"><img src="/assets/img/cherry-logo.svg" alt="" width="56" height="56"><span><strong>Charlies Cherries</strong><small>Boss Mode</small></span></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/opening-day.html">Opening Day</a><a href="/menu.html">Menu</a><a href="/staff-badges.html">Staff badges</a></nav></header>
 
-  <header class="site-header" aria-label="Charlies Cherries header">
-    <a class="brand" href="/" aria-label="Charlies Cherries home">
-      <img src="/assets/img/cherry-logo.svg" alt="" width="56" height="56">
-      <span>
-        <strong>Charlies Cherries</strong>
-        <small>Chef Desk</small>
-      </span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="/">Home</a>
-      <a href="/opening-day.html">Opening Day</a>
-      <a href="/menu.html">Menu</a>
-      <a href="/launch-card.html">Launch card</a>
-    </nav>
-  </header>
-
-  <main id="main" class="section-shell chef-desk" aria-labelledby="desk-title">
-    <section class="desk-hero">
-      <p class="eyebrow">Restaurant HQ</p>
-      <h1 id="desk-title">Chef Desk</h1>
-      <p class="hero-subtitle">This is Charlie’s pretend restaurant control room. Changes stay on this iPad and are not sent anywhere.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#board">Change the board</a>
-        <a class="button button-secondary" href="#invent">Invent a dish</a>
-        <a class="button button-secondary" href="#stickers">Sticker book</a>
-      </div>
-    </section>
+  <main id="main" class="section-shell boss-mode" aria-labelledby="desk-title">
+    <section class="desk-hero"><p class="eyebrow">Chef Charlie’s control room</p><h1 id="desk-title">Boss Mode</h1><p class="hero-subtitle">Change the pretend restaurant on this iPad. Nothing is sent anywhere and changes only stay on this device.</p><div class="hero-actions"><a class="button button-primary" href="#board">Update restaurant</a><a class="button button-secondary" href="#invent">Invent a dish</a><a class="button button-secondary" href="#stickers">Sticker book</a></div></section>
 
     <section id="board" class="boss-panel" aria-labelledby="board-title">
-      <div>
-        <p class="eyebrow">Specials board</p>
-        <h2 id="board-title">Update the restaurant board</h2>
-        <p>Choose the announcement, special dish, favourite table and restaurant mood.</p>
-      </div>
-
-      <form class="boss-form" data-boss-form>
-        <label>
-          Opening announcement
-          <input name="announcement" type="text" maxlength="70" placeholder="Now open for pretend dinner service">
-        </label>
-        <label>
-          Chef special
-          <input name="special" type="text" maxlength="60" placeholder="Slow-cooked BBQ pork ribs">
-        </label>
-        <label>
-          Favourite table name
-          <input name="table" type="text" maxlength="50" placeholder="VIP Family Table">
-        </label>
-        <label>
-          Restaurant mood
-          <select name="mood">
-            <option>Chef approved</option>
-            <option>BBQ night</option>
-            <option>Dessert party</option>
-            <option>Very fancy</option>
-            <option>Silly service</option>
-            <option>Five cherry feast</option>
-          </select>
-        </label>
-        <div class="boss-actions">
-          <button class="button button-primary" type="submit">Save Chef Changes</button>
-          <button class="button button-secondary" type="button" data-boss-reset>Reset board</button>
-        </div>
+      <div><p class="eyebrow">Specials, tables and party plans</p><h2 id="board-title">Update the restaurant board</h2><p>These are Charlie’s current restaurant choices. They save only on this device.</p></div>
+      <form class="boss-form boss-form--wide" data-boss-form>
+        <label>Opening announcement<input name="announcement" type="text" maxlength="70" placeholder="Now open for pretend dinner service"></label>
+        <label>Special of the day<input name="special" type="text" maxlength="60" placeholder="Slow-cooked BBQ pork ribs"></label>
+        <label>Dessert of the day<select name="dessert"><option>Banana Split</option><option>Donuts</option><option>Ice Cream</option><option>Cherry cupcake</option><option>Mystery dessert</option></select></label>
+        <label>Opening hours<input name="openingHours" type="text" maxlength="80" placeholder="Open weekends for pretend dinner service"></label>
+        <label>Favourite table<input name="table" type="text" maxlength="50" placeholder="Vigo Views"></label>
+        <label>Table name 1<input name="tableVigo" type="text" maxlength="50" placeholder="Vigo Views"></label>
+        <label>Table name 2<input name="tableStaggs" type="text" maxlength="50" placeholder="Staggs Barber"></label>
+        <label>Table name 3<input name="tableKim" type="text" maxlength="50" placeholder="Eat with Kim"></label>
+        <label>Restaurant mood<select name="mood"><option>Chef approved</option><option>BBQ night</option><option>Dessert party</option><option>Very fancy</option><option>Silly service</option><option>Five cherry feast</option></select></label>
+        <label id="party">Party package name<input name="partyName" type="text" maxlength="70" placeholder="Weekend at Bernie’s Party Package"></label>
+        <label class="wide-field">Party package description<textarea name="partyDescription" rows="3" maxlength="160" placeholder="A very funny party with ribs, nuggets, donuts and ice cream."></textarea></label>
+        <label>Review quote<input name="reviewQuote" type="text" maxlength="90" placeholder="Best ribs I’ve had in Seddon."></label>
+        <label>Review name<input name="reviewAuthor" type="text" maxlength="60" placeholder="A very serious local food critic"></label>
+        <div class="boss-actions wide-field"><button class="button button-primary" type="submit">Save Chef Changes</button><button class="button button-secondary" type="button" data-boss-reset>Reset board</button></div>
       </form>
-
-      <div class="boss-preview" aria-live="polite">
-        <p class="eyebrow" data-live-announcement>Now open for pretend dinner service</p>
-        <h3 data-live-special>Slow-cooked BBQ pork ribs</h3>
-        <p>Best table today: <strong data-live-table>VIP Family Table</strong></p>
-        <p>Restaurant mood: <strong data-live-mood>Chef approved</strong></p>
-      </div>
+      <div class="boss-preview" aria-live="polite"><p class="eyebrow" data-live-announcement>Now open for pretend dinner service</p><h3 data-live-special>Slow-cooked BBQ pork ribs</h3><p>Dessert today: <strong data-live-dessert>Banana Split</strong></p><p>Opening hours: <strong data-live-hours>Open weekends for pretend dinner service</strong></p><p>Favourite table: <strong data-live-table>Vigo Views</strong></p><p>Party package: <strong data-live-party-name>Weekend at Bernie’s Party Package</strong></p><p>Review: <span data-live-review-quote>“Best ribs I’ve had in Seddon.”</span></p></div>
     </section>
 
-    <section id="invent" class="boss-panel invention-panel" aria-labelledby="invent-title">
-      <div>
-        <p class="eyebrow">Menu invention lab</p>
-        <h2 id="invent-title">Make a menu item</h2>
-        <p>Invent one new dish for the secret menu. It will appear on this iPad and on the home page.</p>
-      </div>
+    <section id="invent" class="boss-panel invention-panel" aria-labelledby="invent-title"><div><p class="eyebrow">Menu invention lab</p><h2 id="invent-title">Make a menu item</h2><p>Invent one new dish for the secret menu. It will appear on this iPad and on the home page.</p></div><form class="boss-form" data-invention-form><label>Dish emoji<input name="emoji" type="text" maxlength="4" inputmode="text" placeholder="🍕"></label><label>Dish name<input name="name" type="text" maxlength="50" placeholder="Charlie’s Super Pizza"></label><label>Cherry price<select name="price"><option>3 cherries</option><option>5 cherries</option><option>7 cherries</option><option>10 cherries</option><option>100 pretend cherries</option></select></label><label>Chef note<textarea name="note" rows="3" maxlength="120" placeholder="Extra cheese because the boss said so."></textarea></label><label>Boss stamp<select name="stamp"><option>Chef approved</option><option>Secret menu</option><option>Very important dish</option><option>Dessert boss approved</option><option>Family favourite</option></select></label><div class="boss-actions"><button class="button button-primary" type="submit">Add to secret menu</button><button class="button button-secondary" type="button" data-invention-reset>Clear invention</button></div></form><article class="invention-card invention-card--desk" data-invention-preview hidden aria-live="polite"><p class="eyebrow">Newest invention</p><div class="invention-card__body"><span class="invention-card__emoji" data-invention-emoji aria-hidden="true">🍒</span><div><h3 data-invention-name>Secret menu item</h3><p data-invention-note>Made by Chef Charlie at the Chef Desk.</p><p class="menu-stamp"><span data-invention-price>5 cherries</span> · <span data-invention-stamp>Chef approved</span></p></div></div></article></section>
 
-      <form class="boss-form" data-invention-form>
-        <label>
-          Dish emoji
-          <input name="emoji" type="text" maxlength="4" inputmode="text" placeholder="🍕">
-        </label>
-        <label>
-          Dish name
-          <input name="name" type="text" maxlength="50" placeholder="Charlie’s Super Pizza">
-        </label>
-        <label>
-          Cherry price
-          <select name="price">
-            <option>3 cherries</option>
-            <option>5 cherries</option>
-            <option>7 cherries</option>
-            <option>10 cherries</option>
-            <option>100 pretend cherries</option>
-          </select>
-        </label>
-        <label>
-          Chef note
-          <textarea name="note" rows="3" maxlength="120" placeholder="Extra cheese because the boss said so."></textarea>
-        </label>
-        <label>
-          Boss stamp
-          <select name="stamp">
-            <option>Chef approved</option>
-            <option>Secret menu</option>
-            <option>Very important dish</option>
-            <option>Dessert boss approved</option>
-            <option>Family favourite</option>
-          </select>
-        </label>
-        <div class="boss-actions">
-          <button class="button button-primary" type="submit">Add to secret menu</button>
-          <button class="button button-secondary" type="button" data-invention-reset>Clear invention</button>
-        </div>
-      </form>
-
-      <article class="invention-card invention-card--desk" data-invention-preview hidden aria-live="polite">
-        <p class="eyebrow">Newest invention</p>
-        <div class="invention-card__body">
-          <span class="invention-card__emoji" data-invention-emoji aria-hidden="true">🍒</span>
-          <div>
-            <h3 data-invention-name>Secret menu item</h3>
-            <p data-invention-note>Made by Chef Charlie at the Chef Desk.</p>
-            <p class="menu-stamp"><span data-invention-price>5 cherries</span> · <span data-invention-stamp>Chef approved</span></p>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="stickers" class="boss-panel sticker-panel" aria-labelledby="sticker-title">
-      <div>
-        <p class="eyebrow">Sticker book</p>
-        <h2 id="sticker-title">Collect restaurant stickers</h2>
-        <p>Stickers unlock when Charlie explores the restaurant website. They save only on this device.</p>
-      </div>
-      <div class="sticker-book" data-sticker-book aria-live="polite"></div>
-      <div class="boss-actions">
-        <button class="button button-secondary" type="button" data-sticker-reset>Reset stickers</button>
-      </div>
-    </section>
+    <section id="stickers" class="boss-panel sticker-panel" aria-labelledby="sticker-title"><div><p class="eyebrow">Sticker book</p><h2 id="sticker-title">Collect restaurant stickers</h2><p>Charlie asked for points, coffee and ice cream stickers, so they are now in the book.</p></div><div class="sticker-actions"><button class="button button-secondary" type="button" data-unlock-sticker="points">Add points sticker</button><button class="button button-secondary" type="button" data-unlock-sticker="coffee">Add coffee sticker</button><button class="button button-secondary" type="button" data-unlock-sticker="ice-cream">Add ice cream sticker</button></div><div class="sticker-book" data-sticker-book aria-live="polite"></div><div class="boss-actions"><button class="button button-secondary" type="button" data-sticker-reset>Reset stickers</button></div></section>
   </main>
-
-  <footer class="site-footer">
-    <p>Chef Desk is for pretend restaurant play. It does not send anything anywhere.</p>
-    <p><a href="/">Home</a> · <a href="/opening-day.html">Opening Day</a> · <a href="/menu.html">Printable menu</a></p>
-  </footer>
-
+  <footer class="site-footer"><p>Chef Desk is for pretend restaurant play. It does not send anything anywhere.</p><p><a href="/">Home</a> · <a href="/opening-day.html">Opening Day</a> · <a href="/menu.html">Printable menu</a> · <a href="/staff-badges.html">Staff badges</a></p></footer>
   <script src="/assets/js/app.js" defer></script>
 </body>
 </html>

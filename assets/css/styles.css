@@ -1320,3 +1320,131 @@ h3 {
     display: none;
   }
 }
+
+
+/* v1.3 Charlie-led expansion */
+.hours-pill {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.4rem 0 0;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 229, 163, 0.5);
+  border: 1px solid var(--line);
+  color: var(--cherry-dark);
+  font-size: 0.95rem;
+}
+
+.party-package {
+  text-align: center;
+  border: 2px dashed rgba(180, 35, 74, 0.28);
+  background: linear-gradient(135deg, rgba(255, 229, 163, 0.45), rgba(255, 228, 236, 0.72));
+  border-radius: var(--radius-lg);
+}
+
+.boss-form--wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.boss-form .wide-field {
+  grid-column: 1 / -1;
+}
+
+.sticker-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.badge-sheet {
+  max-width: 980px;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.staff-badge {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.4rem;
+  border: 3px solid var(--cherry);
+  border-radius: 28px;
+  background: #fffdf8;
+  box-shadow: 0 16px 32px rgba(123, 21, 48, 0.12);
+}
+
+.staff-badge h2 {
+  margin: 0.2rem 0;
+  font-size: clamp(2rem, 8vw, 3.6rem);
+  color: var(--cherry-dark);
+}
+
+.staff-badge p {
+  margin: 0;
+}
+
+.staff-badge span {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.badge-role {
+  display: inline-flex;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--butter);
+  color: var(--cherry-dark);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.staff-badge--blank {
+  border-style: dashed;
+}
+
+@media (max-width: 760px) {
+  .boss-form--wide,
+  .badge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .staff-badges-page .site-header,
+  .staff-badges-page .site-footer,
+  .staff-badges-page .screen-actions {
+    display: none !important;
+  }
+
+  .staff-badges-page {
+    background: #fff !important;
+  }
+
+  .badge-sheet {
+    box-shadow: none !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .badge-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5cm !important;
+  }
+
+  .staff-badge {
+    break-inside: avoid;
+    min-height: 7.2cm;
+    box-shadow: none !important;
+  }
+}

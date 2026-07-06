@@ -3,7 +3,16 @@
     announcement: 'charliesCherries.announcement',
     special: 'charliesCherries.special',
     table: 'charliesCherries.table',
+    tableVigo: 'charliesCherries.tableVigo',
+    tableStaggs: 'charliesCherries.tableStaggs',
+    tableKim: 'charliesCherries.tableKim',
     mood: 'charliesCherries.mood',
+    dessert: 'charliesCherries.dessert',
+    openingHours: 'charliesCherries.openingHours',
+    partyName: 'charliesCherries.partyName',
+    partyDescription: 'charliesCherries.partyDescription',
+    reviewQuote: 'charliesCherries.reviewQuote',
+    reviewAuthor: 'charliesCherries.reviewAuthor',
     dishEmoji: 'charliesCherries.dishEmoji',
     dishName: 'charliesCherries.dishName',
     dishPrice: 'charliesCherries.dishPrice',
@@ -16,8 +25,17 @@
   const defaults = {
     announcement: 'Now open for pretend dinner service',
     special: 'Slow-cooked BBQ pork ribs',
-    table: 'VIP Family Table',
+    table: 'Vigo Views',
+    tableVigo: 'Vigo Views',
+    tableStaggs: 'Staggs Barber',
+    tableKim: 'Eat with Kim',
     mood: 'Chef approved',
+    dessert: 'Banana Split',
+    openingHours: 'Open weekends for pretend dinner service',
+    partyName: 'Weekend at Bernie’s Party Package',
+    partyDescription: 'A very funny party with ribs, nuggets, donuts, ice cream and boss-approved table service.',
+    reviewQuote: 'Best ribs I’ve had in Seddon.',
+    reviewAuthor: 'A very serious local food critic',
     dishEmoji: '',
     dishName: '',
     dishPrice: '5 cherries',
@@ -29,24 +47,34 @@
     { id: 'opened', icon: '🍒', label: 'Opened the restaurant' },
     { id: 'chef-desk', icon: '👩‍🍳', label: 'Visited Chef Desk' },
     { id: 'changed-special', icon: '🍖', label: 'Changed the special' },
+    { id: 'dessert-boss', icon: '🍌', label: 'Added a dessert' },
+    { id: 'renamed-tables', icon: '🪑', label: 'Named the tables' },
+    { id: 'changed-hours', icon: '🕒', label: 'Set opening hours' },
+    { id: 'party-package', icon: '🎉', label: 'Made a party package' },
+    { id: 'review-added', icon: '💬', label: 'Added a review' },
     { id: 'invented-dish', icon: '✨', label: 'Invented a dish' },
     { id: 'booking', icon: '🧾', label: 'Took a booking' },
     { id: 'opening-day', icon: '✅', label: 'Visited Opening Day' },
     { id: 'ready', icon: '🏁', label: 'Restaurant ready' },
     { id: 'print', icon: '🖨️', label: 'Used the print station' },
-    { id: 'menu-tap', icon: '⭐', label: 'Explored the menu' }
+    { id: 'menu-tap', icon: '⭐', label: 'Explored the menu' },
+    { id: 'points', icon: '💯', label: 'Collected points' },
+    { id: 'coffee', icon: '☕', label: 'Coffee helper' },
+    { id: 'ice-cream', icon: '🍨', label: 'Ice cream expert' },
+    { id: 'staff-badges', icon: '🏷️', label: 'Printed staff badges' }
   ];
 
   const chefNotes = [
     'Chef note: “Ribs must be delicious and a little bit messy.”',
-    'Chef note: “Lasagne needs lots of layers and boss energy.”',
-    'Chef note: “Chicken wings are best when everyone says wow.”',
-    'Chef note: “All customers must arrive hungry.”',
-    'Chef note: “Dessert is an important business decision.”'
+    'Chef note: “Fried rice is excellent restaurant business.”',
+    'Chef note: “Nana’s sausage rolls are very important.”',
+    'Chef note: “Chicken nuggets are allowed at fancy restaurants.”',
+    'Chef note: “Dessert is an important business decision.”',
+    'Chef note: “Ice cream earns extra points.”'
   ];
 
   unlockPageSticker();
-  applyBossSettings();
+  applyRestaurantSettings();
   applyInvention();
   setupBossMode();
   setupInventionForm();
@@ -57,6 +85,7 @@
   setupQrFallback();
   setupOpeningChecklist();
   setupStickerReset();
+  setupStickerButtons();
   renderStickerBooks();
 
   function unlockPageSticker() {
@@ -64,6 +93,7 @@
     if (page === 'home') addSticker('opened', false);
     if (page === 'chef-desk') addSticker('chef-desk', false);
     if (page === 'opening-day') addSticker('opening-day', false);
+    if (page === 'staff-badges') addSticker('staff-badges', false);
   }
 
   function getSetting(name) {
@@ -91,15 +121,27 @@
   }
 
   function resetSettings() {
-    ['announcement', 'special', 'table', 'mood'].forEach(removeSetting);
-    applyBossSettings();
+    [
+      'announcement', 'special', 'table', 'tableVigo', 'tableStaggs', 'tableKim', 'mood',
+      'dessert', 'openingHours', 'partyName', 'partyDescription', 'reviewQuote', 'reviewAuthor'
+    ].forEach(removeSetting);
+    applyRestaurantSettings();
   }
 
-  function applyBossSettings() {
+  function applyRestaurantSettings() {
     setText('[data-live-announcement]', getSetting('announcement'));
     setText('[data-live-special]', getSetting('special'));
     setText('[data-live-table]', getSetting('table'));
+    setText('[data-live-table-vigo]', getSetting('tableVigo'));
+    setText('[data-live-table-staggs]', getSetting('tableStaggs'));
+    setText('[data-live-table-kim]', getSetting('tableKim'));
     setText('[data-live-mood]', getSetting('mood'));
+    setText('[data-live-dessert]', getSetting('dessert'));
+    setText('[data-live-hours]', getSetting('openingHours'));
+    setText('[data-live-party-name]', getSetting('partyName'));
+    setText('[data-live-party-description]', getSetting('partyDescription'));
+    setText('[data-live-review-quote]', '“' + getSetting('reviewQuote') + '”');
+    setText('[data-live-review-author]', getSetting('reviewAuthor'));
   }
 
   function setText(selector, value) {
@@ -113,10 +155,19 @@
     const resetButton = document.querySelector('[data-boss-reset]');
 
     if (form) {
-      form.elements.announcement.value = getSetting('announcement');
-      form.elements.special.value = getSetting('special');
-      form.elements.table.value = getSetting('table');
-      form.elements.mood.value = getSetting('mood');
+      setFormValue(form, 'announcement', getSetting('announcement'));
+      setFormValue(form, 'special', getSetting('special'));
+      setFormValue(form, 'table', getSetting('table'));
+      setFormValue(form, 'tableVigo', getSetting('tableVigo'));
+      setFormValue(form, 'tableStaggs', getSetting('tableStaggs'));
+      setFormValue(form, 'tableKim', getSetting('tableKim'));
+      setFormValue(form, 'mood', getSetting('mood'));
+      setFormValue(form, 'dessert', getSetting('dessert'));
+      setFormValue(form, 'openingHours', getSetting('openingHours'));
+      setFormValue(form, 'partyName', getSetting('partyName'));
+      setFormValue(form, 'partyDescription', getSetting('partyDescription'));
+      setFormValue(form, 'reviewQuote', getSetting('reviewQuote'));
+      setFormValue(form, 'reviewAuthor', getSetting('reviewAuthor'));
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -124,10 +175,25 @@
         setSetting('announcement', cleanShortText(data.get('announcement'), defaults.announcement));
         setSetting('special', cleanShortText(data.get('special'), defaults.special));
         setSetting('table', cleanShortText(data.get('table'), defaults.table));
+        setSetting('tableVigo', cleanShortText(data.get('tableVigo'), defaults.tableVigo));
+        setSetting('tableStaggs', cleanShortText(data.get('tableStaggs'), defaults.tableStaggs));
+        setSetting('tableKim', cleanShortText(data.get('tableKim'), defaults.tableKim));
         setSetting('mood', cleanShortText(data.get('mood'), defaults.mood));
-        applyBossSettings();
-        addSticker('changed-special', true);
-        confetti(42);
+        setSetting('dessert', cleanShortText(data.get('dessert'), defaults.dessert));
+        setSetting('openingHours', cleanShortText(data.get('openingHours'), defaults.openingHours));
+        setSetting('partyName', cleanShortText(data.get('partyName'), defaults.partyName));
+        setSetting('partyDescription', cleanShortText(data.get('partyDescription'), defaults.partyDescription));
+        setSetting('reviewQuote', cleanShortText(data.get('reviewQuote'), defaults.reviewQuote));
+        setSetting('reviewAuthor', cleanShortText(data.get('reviewAuthor'), defaults.reviewAuthor));
+        applyRestaurantSettings();
+        addSticker('changed-special', false);
+        addSticker('dessert-boss', false);
+        addSticker('renamed-tables', false);
+        addSticker('changed-hours', false);
+        addSticker('party-package', false);
+        addSticker('review-added', false);
+        addSticker('points', false);
+        confetti(48);
       });
     }
 
@@ -135,14 +201,23 @@
       resetButton.addEventListener('click', function () {
         resetSettings();
         if (form) {
-          form.elements.announcement.value = defaults.announcement;
-          form.elements.special.value = defaults.special;
-          form.elements.table.value = defaults.table;
-          form.elements.mood.value = defaults.mood;
+          Object.keys(defaults).forEach(function (name) { setFormValue(form, name, defaults[name]); });
+          setFormValue(form, 'tableVigo', defaults.tableVigo);
+          setFormValue(form, 'tableStaggs', defaults.tableStaggs);
+          setFormValue(form, 'tableKim', defaults.tableKim);
+          setFormValue(form, 'openingHours', defaults.openingHours);
+          setFormValue(form, 'partyName', defaults.partyName);
+          setFormValue(form, 'partyDescription', defaults.partyDescription);
+          setFormValue(form, 'reviewQuote', defaults.reviewQuote);
+          setFormValue(form, 'reviewAuthor', defaults.reviewAuthor);
         }
         sparkle(resetButton);
       });
     }
+  }
+
+  function setFormValue(form, name, value) {
+    if (form.elements[name]) form.elements[name].value = value || '';
   }
 
   function hasInvention() {
@@ -189,11 +264,11 @@
     const resetButton = document.querySelector('[data-invention-reset]');
 
     if (form) {
-      form.elements.emoji.value = getSetting('dishEmoji');
-      form.elements.name.value = getSetting('dishName');
-      form.elements.price.value = getSetting('dishPrice');
-      form.elements.note.value = getSetting('dishNote');
-      form.elements.stamp.value = getSetting('dishStamp');
+      setFormValue(form, 'emoji', getSetting('dishEmoji'));
+      setFormValue(form, 'name', getSetting('dishName'));
+      setFormValue(form, 'price', getSetting('dishPrice'));
+      setFormValue(form, 'note', getSetting('dishNote'));
+      setFormValue(form, 'stamp', getSetting('dishStamp'));
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -205,6 +280,7 @@
         setSetting('dishStamp', cleanShortText(data.get('stamp'), 'Chef approved'));
         applyInvention();
         addSticker('invented-dish', true);
+        addSticker('points', false);
         confetti(46);
       });
     }
@@ -236,7 +312,9 @@
   function setupPrintButtons() {
     document.querySelectorAll('[data-print]').forEach(function (button) {
       button.addEventListener('click', function () {
-        addSticker('print', true);
+        addSticker('print', false);
+        if (document.body.getAttribute('data-page') === 'staff-badges') addSticker('staff-badges', false);
+        addSticker('coffee', false);
         window.print();
       });
     });
@@ -280,7 +358,8 @@
           const printTicketButton = ticket.querySelector('[data-print-ticket]');
           if (printTicketButton) {
             printTicketButton.addEventListener('click', function () {
-              addSticker('print', true);
+              addSticker('print', false);
+              addSticker('coffee', false);
               document.body.classList.add('ticket-printing');
               window.print();
               window.setTimeout(function () { document.body.classList.remove('ticket-printing'); }, 1000);
@@ -299,6 +378,7 @@
     document.querySelectorAll('[data-menu-card]').forEach(function (card) {
       card.addEventListener('click', function () {
         addSticker('menu-tap', false);
+        if (card.dataset.sticker) addSticker(card.dataset.sticker, false);
         sparkle(card);
         renderStickerBooks();
       });
@@ -306,6 +386,7 @@
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           addSticker('menu-tap', false);
+          if (card.dataset.sticker) addSticker(card.dataset.sticker, false);
           sparkle(card);
           renderStickerBooks();
         }
@@ -388,6 +469,7 @@
     if (output) output.textContent = done + ' of ' + boxes.length + ' opening jobs done.';
     if (done === boxes.length && boxes.length > 0) {
       addSticker('ready', true);
+      addSticker('points', false);
       confetti(32);
     }
     renderStickerBooks();
@@ -400,6 +482,14 @@
         unlockPageSticker();
         renderStickerBooks();
         sparkle(button);
+      });
+    });
+  }
+
+  function setupStickerButtons() {
+    document.querySelectorAll('[data-unlock-sticker]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        addSticker(button.getAttribute('data-unlock-sticker'), true);
       });
     });
   }

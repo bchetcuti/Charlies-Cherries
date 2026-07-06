@@ -9,9 +9,8 @@ The site is designed to be playful, iPad-friendly and safe by default:
 - no real booking submission
 - no personal surname, school, address or contact details
 - noindex/nofollow headers and robots.txt included
-- printable menu, chef certificate and launch card included
+- printable menu, chef certificate, launch card and staff badges included
 - local-only Chef Desk for pretend restaurant changes on one device
-- local-only sticker book and opening checklist
 
 ## Pages
 
@@ -19,25 +18,25 @@ The site is designed to be playful, iPad-friendly and safe by default:
 - `/menu.html` — printable restaurant menu
 - `/certificate.html` — printable Founder & Head Chef certificate
 - `/launch-card.html` — printable grand opening card using `/assets/img/qr.png`
-- `/chef-desk.html` — local-only pretend Restaurant HQ for Chef Charlie
-- `/boss-mode.html` — compatibility copy of Chef Desk
-- `/opening-day.html` — local-only opening day checklist and print station
+- `/chef-desk.html` — local-only pretend control panel for Chef Charlie
+- `/boss-mode.html` — compatibility page for the Chef Desk experience
+- `/opening-day.html` — opening checklist and sticker book
+- `/staff-badges.html` — printable staff badges for Charlie, Mum, Dad and future helpers
 
-## v1.2 features
+## v1.3 Charlie-led additions
 
-v1.2 is about making the site more explorable for an 8-year-old restaurant founder.
+v1.3 adds the first set of requests Charlie made after using the app:
 
-Included:
+- standard menu additions: Fried Rice, Nana’s Sausage Rolls and Chicken Nuggets
+- desserts: Banana Split, Donuts and Ice Cream
+- named carpark tables: Vigo Views, Staggs Barber and Eat with Kim
+- new review: “Best ribs I’ve had in Seddon.”
+- opening hours field in Chef Desk
+- party package: Weekend at Bernie’s Party Package
+- extra stickers: points, coffee and ice cream
+- printable staff badges: Charlie, Mum, Dad and a blank helper badge
 
-- Chef Desk, replacing the adult-sounding Boss Mode language
-- specials board controls for announcement, special dish, table name and restaurant mood
-- Menu invention lab for one local-only secret menu item
-- the invented item appears on the home page and in the booking meal list on the same device
-- pretend booking now creates a printable kitchen order ticket
-- Opening Day checklist for launch preparation
-- sticker book with local-only unlocks for exploring the site
-
-Everything is stored in browser `localStorage`. Nothing is sent to a server and changes do not update the public site for other visitors.
+All editable restaurant details remain local-only in browser storage.
 
 ## QR code
 
@@ -54,26 +53,17 @@ If the QR file is missing, the launch card falls back to a visible placeholder. 
 `/chef-desk.html` lets Chef Charlie update pretend details:
 
 - opening announcement
-- chef special
-- favourite table name
+- special of the day
+- dessert of the day
+- opening hours
+- favourite table
+- three carpark table names
 - restaurant mood
-- invented dish emoji/name/price/note/stamp
+- party package
+- pretend review
+- one secret menu invention
 
 These changes are saved only in the browser’s local storage on the device being used. They are not sent to a server and they do not change the public site for other visitors.
-
-## Opening Day
-
-`/opening-day.html` gives Charlie a launch checklist:
-
-- menu printed
-- chef certificate displayed
-- QR launch card ready
-- napkins ready for rib sauce
-- taste tester appointed
-- dessert decision made
-- dining room approved by the boss
-
-When all jobs are complete, the site unlocks the “Restaurant ready” sticker.
 
 ## Deploy to Cloudflare Pages
 
@@ -85,29 +75,17 @@ When all jobs are complete, the site unlocks the “Restaurant ready” sticker.
 6. Build output directory: `/`.
 7. Deploy.
 
-Recommended first deployment: use the default `*.pages.dev` URL and keep the site unlinked from public websites.
+Recommended deployment: use the default `*.pages.dev` URL and keep the site unlinked from public websites.
 
-## Suggested reveal
+## Suggested reveal/play flow
 
-Print the launch card, menu and certificate.
+1. Open the site on Charlie’s iPad.
+2. Visit Chef Desk and let her change the special, dessert and opening hours.
+3. Show the named carpark tables.
+4. Print the staff badges.
+5. Use Opening Day to tick off the restaurant jobs.
+6. Book a pretend table and print the kitchen ticket.
 
-Recommended reveal order:
+## Future roadmap
 
-1. Hand Charlie the Founder & Head Chef certificate.
-2. Give her the launch card with the QR code.
-3. Let her scan it on the iPad.
-4. Open Chef Desk and let her change the first special herself.
-5. Let her invent one new secret menu item.
-6. Make a pretend booking and print the kitchen order ticket.
-7. Open Opening Day and tick off the restaurant jobs together.
-
-## Small edits Charlie can request later
-
-- Change the special of the day
-- Add a dessert
-- Rename the carpark tables
-- Add a new review
-- Add opening hours
-- Add a party package
-- Add more stickers
-- Add printable staff badges
+Keep the app static/local-only until there is a real reason to add infrastructure. Consider Cloudflare Worker + D1 + optional R2 later only if Charlie wants shared multi-device updates, saved menus across devices, or uploaded restaurant assets.
