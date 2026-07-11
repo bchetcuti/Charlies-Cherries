@@ -22,6 +22,23 @@ The site is designed to be playful, iPad-friendly and safe by default:
 - `/boss-mode.html` — compatibility page for the Chef Desk experience
 - `/opening-day.html` — opening checklist and sticker book
 - `/staff-badges.html` — printable staff badges for Charlie, Mum, Dad and future helpers
+- `/fun-games/` — local Fun Games hub with Level 1 and Level 3 progress
+- `/fun-games/cherry-parkour/` — Charlies Cherries People Obby
+
+## v1.4 Charlie-led game iteration
+
+v1.4 responds directly to Charlie’s first play-test feedback:
+
+- Level 1 is now **Restaurant Rush**, an easier course with wide platforms, short gaps and no moving obstacles
+- the original harder course is retained as a **Level 3: Dessert Dash Challenge** preview
+- the game now centres on eight blocky restaurant people rather than cherry collection
+- people are met automatically as Charlie travels through the course
+- cherries are reduced to optional bonus items
+- the game uses a brighter block-style obby presentation with checkpoints and original characters
+- completing either course still unlocks the local pretend dessert voucher
+- existing Level 1 progress is migrated to the Level 3 challenge record
+
+Game state remains local-only in browser storage. No account, backend, leaderboard or analytics is introduced.
 
 ## v1.3 Charlie-led additions
 
@@ -82,9 +99,9 @@ Recommended deployment: use the default `*.pages.dev` URL and keep the site unli
 1. Open the site on Charlie’s iPad.
 2. Visit Chef Desk and let her change the special, dessert and opening hours.
 3. Show the named carpark tables.
-4. Print the staff badges.
-5. Use Opening Day to tick off the restaurant jobs.
-6. Book a pretend table and print the kitchen ticket.
+4. Open Fun Games and begin with Level 1: Restaurant Rush.
+5. Print the dessert voucher after completing a course.
+6. Use Opening Day to tick off the restaurant jobs.
 
 ## Future roadmap
 
